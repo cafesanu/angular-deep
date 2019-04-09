@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css"
             ],
             "scripts": [],
@@ -58,7 +59,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-fundamentals:build"
+            "browserTarget": "angular-fundamentals:build",
+            "open": true,
+            "hmr": true
           },
           "configurations": {
             "production": {
