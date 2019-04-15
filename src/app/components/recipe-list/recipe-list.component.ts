@@ -1,5 +1,9 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { Recipe } from 'src/app/models/recipe.model';
+
+import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+
+import { RecipeService } from '../../services/recipe/recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -7,22 +11,25 @@ import { Recipe } from 'src/app/models/recipe.model';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  public recipes: Recipe[] = [
-    new Recipe(
-      'Arroz con pollo',
-      'Can\'t go wrong with chicken and rice',
-      'https://www.tasteofhome.com/wp-content/uploads/2017/10/Healthier-than-Egg-Rolls_EXPS_SDON17_55166_C06_23_6b-696x696.jpg'
-    ),
-  ];
+  public recipes: Recipe[];
 
-  @Output() public readonly recipeSelected: EventEmitter<Recipe> = new EventEmitter<Recipe>();
-
-  constructor() { }
+  constructor(
+    private _recipeService: RecipeService,
+    private _router: Router,
+    private _route: ActivatedRoute
+  ) {
+  }
 
   public ngOnInit(): void {
+    this.recipes = this._recipeService.getRecipes();
   }
 
-  public onRecipeSelected(recipe: Recipe): void {
-    this.recipeSelected.emit(recipe);
+  public onNewRecipe(): void {
+    // tslint:disable-next-line: no-floating-promises
+    this._router.navigate(['new'], {
+      relativeTo: this._route
+    });
   }
+
+
 }
