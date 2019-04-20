@@ -1,3 +1,4 @@
+import {AuthGuardService} from './services/auth-guard/auth-guard.service';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -6,6 +7,8 @@ import { RecipeStartComponent } from './components/recipe-start/recipe-start.com
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
 import { RecipeEditComponent } from './components/recipe-edit/recipe-edit.component';
+import { SignupComponent } from './components/signup/signup/signup.component';
+import { SigninComponent } from './components/signin/signin/signin.component';
 
 const routes: Routes = [
   {
@@ -23,7 +26,8 @@ const routes: Routes = [
       },
       {
         path: 'new',
-        component: RecipeEditComponent
+        component: RecipeEditComponent,
+        canActivate: [AuthGuardService]
       },
       {
         path: ':id',
@@ -31,13 +35,22 @@ const routes: Routes = [
       },
       {
         path: ':id/edit',
-        component: RecipeEditComponent
+        component: RecipeEditComponent,
+        canActivate: [AuthGuardService]
       }
     ]
   },
   {
     path: 'shopping-list',
     component: ShoppingListComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
+  },
+  {
+    path: 'signin',
+    component: SigninComponent
   }
 ];
 

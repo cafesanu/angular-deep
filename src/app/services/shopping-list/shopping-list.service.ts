@@ -8,9 +8,11 @@ import { Injectable } from '@angular/core';
 })
 export class ShoppingListService {
   public ingredientsChanged: Subject<Ingredient[]> = new Subject<Ingredient[]>();
+  public startedEditing: Subject<number> = new Subject<number>();
+
   private _ingredients: Ingredient[] = [
     new Ingredient('Apples', 5),
-    new Ingredient('Tomatoes', 10),
+    new Ingredient('Tomatoes', 10)
   ];
 
   constructor() {
@@ -30,6 +32,21 @@ export class ShoppingListService {
       ...this._ingredients,
       ...ingredients
     ];
+    this.ingredientsChanged.next(this._ingredients.slice());
+  }
+
+  public getIngredient(index: number): Ingredient {
+    return this._ingredients[index];
+  }
+
+  public updateIngredient(index: number, newIngredient: Ingredient): void {
+    this._ingredients[index] = newIngredient;
+    this.ingredientsChanged.next(this._ingredients.slice());
+  }
+
+  public deleteIngredient(index: number): void {
+    this._ingredients.splice(index, 1);
+
     this.ingredientsChanged.next(this._ingredients.slice());
   }
 }

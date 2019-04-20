@@ -38,7 +38,7 @@
     "no-conflicting-life-cycle-hooks": true,
     "enforce-component-selector": true,
     "no-queries-parameter": true,
-    "prefer-inline-decorator": true,
+    "prefer-inline-decorator": false,
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
