@@ -4,7 +4,7 @@ import { ShoppingListService } from 'src/app/services/shopping-list/shopping-lis
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { Ingredient } from '../../models/ingredient.model';
+import { Ingredient } from '../../../models/ingredient.model';
 
 interface IFormValue {
   name: string;

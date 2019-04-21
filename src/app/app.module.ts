@@ -1,23 +1,14 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing-module';
+import { AuthModule } from './auth/auth.module';
 import { HeaderComponent } from './components/header/header.component';
-import { RecipeDetailComponent } from './components/recipe-detail/recipe-detail.component';
-import { RecipeEditComponent } from './components/recipe-edit/recipe-edit.component';
-import { RecipeItemComponent } from './components/recipe-item/recipe-item.component';
-import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
-import { RecipeStartComponent } from './components/recipe-start/recipe-start.component';
-import { RecipesComponent } from './components/recipes/recipes.component';
-import { ShoppingEditComponent } from './components/shopping-edit/shopping-edit.component';
-import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
-import { SigninComponent } from './components/signin/signin/signin.component';
-import { SignupComponent } from './components/signup/signup/signup.component';
-import { DropdownDirective } from './directives/dropdown/dropdown.directive';
+import { HomeComponent } from './components/home/home.component';
 import { InitService } from './services/init/init.service';
+import { SharedModule } from './shared/shared.module';
 
 export function initializeApp(initService: InitService): () => Promise<void> {
   return (): Promise<void> => {
@@ -28,24 +19,14 @@ export function initializeApp(initService: InitService): () => Promise<void> {
   declarations: [ // Components, directives, and pipes
     AppComponent,
     HeaderComponent,
-    RecipesComponent,
-    RecipeListComponent,
-    RecipeDetailComponent,
-    RecipeItemComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
-    DropdownDirective,
-    RecipeStartComponent,
-    RecipeEditComponent,
-    SignupComponent,
-    SigninComponent
+    HomeComponent
   ],
   imports: [ // other modules
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
+    BrowserModule, // common module + additional features only needed when the app starts
+    HttpModule, // tslint:disable-line deprecation
+    AuthModule,
     AppRoutingModule,
-    HttpModule // tslint:disable-line deprecation
+    SharedModule
   ],
   providers: [ // services
     {

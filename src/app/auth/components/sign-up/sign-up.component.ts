@@ -8,11 +8,11 @@ interface ISignUpData {
 }
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  selector: 'app-sign-up',
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignUpComponent implements OnInit {
 
   constructor(
     private _authService: AuthService

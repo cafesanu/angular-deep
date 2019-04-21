@@ -3,7 +3,7 @@ import { Recipe } from 'src/app/models/recipe.model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { RecipeService } from '../../services/recipe/recipe.service';
+import { RecipeService } from '../../../services/recipe/recipe.service';
 import { Subscription } from 'rxjs';
 
 @Component({

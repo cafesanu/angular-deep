@@ -9,11 +9,11 @@ interface ISignInData {
 }
 
 @Component({
-  selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.css']
+  selector: 'app-sign-in',
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.css']
 })
-export class SigninComponent implements OnInit {
+export class SignInComponent implements OnInit {
   constructor(
     private _authService: AuthService
   ) { }
