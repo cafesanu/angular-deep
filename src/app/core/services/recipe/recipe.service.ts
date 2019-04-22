@@ -1,7 +1,7 @@
 import { Subject } from 'rxjs';
-import { Ingredient } from 'src/app/models/ingredient.model';
-import { Recipe } from 'src/app/models/recipe.model';
-import { ShoppingListService } from 'src/app/services/shopping-list/shopping-list.service';
+import { ShoppingListService } from 'src/app/core/services/shopping-list/shopping-list.service';
+import { Ingredient } from 'src/app/shared/models/ingredient.model';
+import { Recipe } from 'src/app/shared/models/recipe.model';
 
 import { Injectable } from '@angular/core';
 

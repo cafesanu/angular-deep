@@ -1,10 +1,9 @@
 import { Subscription } from 'rxjs';
-import { ShoppingListService } from 'src/app/services/shopping-list/shopping-list.service';
+import { ShoppingListService } from 'src/app/core/services/shopping-list/shopping-list.service';
+import { Ingredient } from 'src/app/shared/models/ingredient.model';
 
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-
-import { Ingredient } from '../../../models/ingredient.model';
 
 interface IFormValue {
   name: string;

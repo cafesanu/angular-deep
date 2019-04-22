@@ -24,7 +24,7 @@
             >Register</a>
           </li>
         </ng-template>
-        <ng-template [ngIf]="authService.isAuthenticated()">
+        <ng-template [ngIf]="isAuthenticated()">
           <li>
             <a
               style="cursor: pointer"
@@ -32,7 +32,7 @@
             >Logout</a>
           </li>
         </ng-template>
-        <li class="dropdown" appDropdown *ngIf="authService.isAuthenticated(); else notAuthenticated">
+        <li class="dropdown" appDropdown *ngIf="isAuthenticated(); else notAuthenticated">
             <a style="cursor: pointer" class="dropdown-toggle" role="button">
               Manage <span class="caret"></span>
             </a>

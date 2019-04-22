@@ -1,9 +1,7 @@
-import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/services/auth/auth.service';
-import { StorageService } from 'src/app/services/storage/storage.service';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { StorageService } from 'src/app/core/services/storage/storage.service';
 
 import { Component, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +11,7 @@ import { Response } from '@angular/http';
 export class HeaderComponent implements OnInit {
   constructor(
     private _storageService: StorageService,
-    public authService: AuthService
+    private _authService: AuthService
   ) {}
 
   public ngOnInit(): void {
@@ -21,7 +19,7 @@ export class HeaderComponent implements OnInit {
 
   public onSaveData(): void {
     this._storageService.storeRecipes()
-      .subscribe((response: Response) => {
+      .subscribe((response: Object) => {
          console.log(response);
       });
   }
@@ -31,6 +29,10 @@ export class HeaderComponent implements OnInit {
   }
 
   public onLogout(): void {
-    this.authService.logout();
+    this._authService.logout();
+  }
+
+  public isAuthenticated(): boolean {
+    return this._authService.isAuthenticated();
   }
 }

@@ -1,6 +1,6 @@
-import { Ingredient } from 'src/app/models/ingredient.model';
-import { Recipe } from 'src/app/models/recipe.model';
-import { RecipeService } from 'src/app/services/recipe/recipe.service';
+import { RecipeService } from 'src/app/core/services/recipe/recipe.service';
+import { Ingredient } from 'src/app/shared/models/ingredient.model';
+import { Recipe } from 'src/app/shared/models/recipe.model';
 
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
